@@ -28,7 +28,12 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
+      - name: Copy web files
+        run: |
+          mkdir -p docs
+          cp -r pyviz3d/src/* docs/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'pyviz3d/src'
+          path: 'docs'
